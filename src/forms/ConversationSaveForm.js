@@ -4,6 +4,7 @@ import { selectFolders } from '../features/folders/foldersSlice';
 import { addFolder, addNoteToFolder } from '../features/folders/foldersSlice';
 import { v4 as uuidv4 } from "uuid";
 import './ConversationSaveForm.css';
+import { aiSummariseConversation } from '../aiAPI/conversation_ai';
 
 const ConversationSaveForm = ({ conversation, handleStartSaveProcess }) => {
     const [selectedFolderId, setSelectedFolderId] = useState('');
@@ -28,15 +29,20 @@ const ConversationSaveForm = ({ conversation, handleStartSaveProcess }) => {
     const folders = useSelector(selectFolders);
 
     // Function handles summarising conversation using OpenAI API
-    const summariseConversation = (conversation) => {
+    const summariseConversation = async (conversation) => {
         const conversationRecord = conversation.conversationRecord; /// OpenAI API ///
-        const summary = "Hello";
-        return summary;
+        const conversationRecordString = conversationRecord.join(", ");
+        try {
+            const summary = await aiSummariseConversation(conversationRecordString);
+            return summary;
+        } catch (err) {
+            console.log(err);
+        }
     }
 
-    const handleSaveConversation = (e) => {
+    const handleSaveConversation = async (e) => {
         e.preventDefault();
-        const summarisedConversation = summariseConversation(conversation);
+        const summarisedConversation = await summariseConversation(conversation);
         const newNote = {
             id: uuidv4(),
             name: conversation.name,

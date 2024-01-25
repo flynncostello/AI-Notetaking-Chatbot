@@ -6,10 +6,12 @@ import ROUTES from '../../app/routes';
 import ConversationSaveForm from '../../forms/ConversationSaveForm';
 import './Conversation.css';
 import logoGray from '../../images/logoGray.png';
+import { getConversationResponse } from '../../aiAPI/conversation_ai';
 
 const Conversation = () => {
     const [ newMessage, setNewMessage ] = useState('');
     const [ savingMessage, setSavingMessage ] = useState(false);
+
 
     const endOfMessagesRef = useRef(null);
 
@@ -25,14 +27,18 @@ const Conversation = () => {
         e.preventDefault();
         if (userTurn) {
             dispatch(updateConversation({ conversationId: id, newConversationElement: newMessage, aiTurn: !aiTurn, userTurn: !userTurn }));
-            setNewMessage('');
         }
     };
 
     // Handles creating ai response based on user input using OpenAI API
-    const createAiResponse = (userMessage) => {
-        const aiResponse = 'This is an AI response to ' + userMessage;
-        dispatch(updateConversation({ conversationId: id, newConversationElement: aiResponse, aiTurn: !aiTurn, userTurn: !userTurn }));
+    const createAiResponse = async (userMessage) => {
+        try {
+            const aiResponse = await getConversationResponse(userMessage);
+            setNewMessage('');
+            dispatch(updateConversation({ conversationId: id, newConversationElement: aiResponse, aiTurn: !aiTurn, userTurn: !userTurn }));
+        } catch (err) {
+            console.log(err);
+        }
     }
 
 

@@ -1,0 +1,21 @@
+.context-menu {
+    position: absolute;
+    visibility: hidden;
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 10px;
+    z-index: 10;
+}
+
+.context-menu.active {
+    visibility: visible;
+}
+
+.context-menu div {
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.context-menu div:hover {
+    background-color: #ddd;
+}

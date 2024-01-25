@@ -35,16 +35,14 @@ function Note() {
                 <div>
                     <div className='selected-file-top-bar'>
                         <h1>{selectedFile.name}</h1>
-                        <i class="fa-solid fa-trash-can" onClick={handleDeleteFile}></i>
+                        <i className="fa-solid fa-trash-can" onClick={handleDeleteFile}></i>
                     </div>
                     <hr />
                     <h3>{selectedFile.date}</h3>
-                    <div className='file-content-container'>                    
-                        <div className='description-container'>
-                            <h2>- {selectedFile.description}</h2>
-                        </div>
-                        <p>{selectedFile.summary}</p>
+                    <div className='description-container'>
+                        <h2>- {selectedFile.description}</h2>
                     </div>
+                    <p>{selectedFile.summary}</p>
                 </div>
             )}
         </div>

@@ -7,7 +7,7 @@ import { selectFolders } from '../folders/foldersSlice';
 import './Notes.css';
 import arrowNav from '../../images/navArrow.png';
 import ROUTES from '../../app/routes';
-import { deleteFolder } from '../folders/foldersSlice';
+import { deleteFolder, deteleteNoteFromFolder } from '../folders/foldersSlice';
 
 import { ContextMenuContext } from '../../app/ContextMenuProvider';
 import ContextMenu from '../../app/ContextMenu';
@@ -39,7 +39,7 @@ function Notes() {
     ////
 
     // Opening context menu - changing contextMenu state in provider and dispatching action to foldersSlice
-    const handleContextMenuOpen = (folderId, event) => {
+    const handleFolderContextMenuOpen = (folderId, event) => {
         event.preventDefault();
         const position = { x: event.clientX, y: event.clientY };
         const items = [
@@ -48,6 +48,20 @@ function Notes() {
             }},
             { label: 'Delete', action: () => {
                 dispatch(deleteFolder(folderId));
+            }},
+        ];
+        showContextMenu(position, items);
+    };
+
+    const handleNoteContextMenuOpen = (folderId, noteId, event) => {
+        event.preventDefault();
+        const position = { x: event.clientX, y: event.clientY };
+        const items = [
+            { label: 'Rename', action: () => {
+                console.log('Rename');
+            }},
+            { label: 'Delete', action: () => {
+                dispatch(deteleteNoteFromFolder({folderId, noteId}));
             }},
         ];
         showContextMenu(position, items);
@@ -89,7 +103,7 @@ function Notes() {
                             className={folder.id === selectedFolder ? 'folder-current' : 'folder'}
                             onClick={() => handleFolderClick(folder.id)}
                             onContextMenu={(event) => {
-                                handleContextMenuOpen(folder.id, event);
+                                handleFolderContextMenuOpen(folder.id, event);
                                 handleFolderClick(folder.id); // Handle folder click as well
                             }}
                         >
@@ -102,6 +116,10 @@ function Notes() {
                                     key={file.id}
                                     className={`file ${selectedFile === file ? 'active' : ''}`}
                                     onClick={() => handleFileClick(file)}
+                                    onContextMenu={(event) => {
+                                        handleNoteContextMenuOpen(folder.id, file.id, event);
+                                        handleFileClick(file); // Handle file click as well
+                                    }}
                                 >
                                     {file.name}
                                 </div>

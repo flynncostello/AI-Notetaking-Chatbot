@@ -3,7 +3,7 @@ import { Outlet, NavLink, Link, useLocation } from "react-router-dom";
 import ROUTES from "./routes";
 import './AppLayout.css';
 import logo from '../images/logo.png';
-
+import mainPageImageAppFeatures from '../images/mainPageImageAppFeatures.png';
 
 export default function AppLayout() {
     const location = useLocation();
@@ -33,7 +33,7 @@ export default function AppLayout() {
                         <Link to={ROUTES.newConversationRoute()} className="start-new-conversation-button">Start New Conversation</Link>
                     </div>
                     <div>
-                        {/* <img className="home-image" src={homeImage} alt="home"/> */}
+                        <img src={mainPageImageAppFeatures} alt="mainPageImageAppFeatures" className="home-page-features-image" />
                     </div>
                 </div>
             )}

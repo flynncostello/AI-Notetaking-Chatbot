@@ -12,6 +12,14 @@
     box-sizing: border-box;
 }
 
+.notes-page > :first-child {
+    flex: 0 0 20%;
+}
+
+.notes-page > :nth-child(2) {
+    flex: 0 0 70%;
+}
+
 /* Folders */
 .folders-container {
     width: 15vw;
@@ -127,9 +135,6 @@
     font-weight: 200;
 }
 
-.file-content-container {
-    display: flex;
-}
 
 .description-container {
     display: flex;
@@ -137,15 +142,18 @@
     background-color: rgb(255, 255, 0);
     box-shadow: 2px 2px 5px rgb(187, 187, 187);
     padding: 20px;
-    width: 20%;
-    min-height: 25vh;
+    max-width: 20%;
+    min-height: 150px;
+    max-height: 200px;
 }
 
 .selected-file-container p {
     margin-top: 10px;
     font-size: 20px;
     padding: 20px;
-    margin: 20px 0 0 50px;
+    margin: 20px 0 0 10px;
+    background-color: #efefef;
+    box-shadow: 1px 1px 3px black;
 }
 
 .selected-file-top-bar {

@@ -81,22 +81,22 @@
 }
 
 .home > :first-child {
-    flex: 60;
+    flex: 50;
 }
 
 .home > :last-child {
-    flex: 40;
+    flex: 50;
 }
 
 .main-text h1 {
-    font-size: 120px;
+    font-size: 7vw;
     font-weight: 700;
     padding: 0;
     margin: 50px 0 0 0;
 }
 
 .main-text h2 {
-    font-size: 30px;
+    font-size: 2vw;
     font-weight: 300;
     max-width: 650px;
 }
@@ -120,4 +120,20 @@
 
 .start-new-conversation-button:hover {
     padding: 12px 22px;
+}
+
+.home-page-features-image {
+    position: absolute;
+    top: 22vh;
+    right: 3vw;
+    width: 45vw;
+}
+
+@media only screen and (max-width: 900px) {
+    .home-page-features-image {
+        display: none;
+    }
+    .home > :first-child {
+        width: 100vw;
+    }
 }

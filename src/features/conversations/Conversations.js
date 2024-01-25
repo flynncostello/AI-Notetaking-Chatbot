@@ -30,7 +30,7 @@ const Conversations = () => {
           </ul>
           <Link
             to={ROUTES.newConversationRoute()}
-            className="start-new-conversation-button"
+            className="start-new-conversation-button-conversation-page"
           >
             Start New Conversation
           </Link>

@@ -4,6 +4,7 @@ import { addConversation } from '../features/conversations/conversationsSlice';
 import { v4 as uuidv4 } from "uuid";
 import { useNavigate } from 'react-router-dom';
 import ROUTES from '../app/routes';
+import './NewConversationForm.css';
 
 const NewConversationForm = () => {
     const [ name, setName ] = useState('');
@@ -32,9 +33,9 @@ const NewConversationForm = () => {
     return (
         <div className='new-conversation-page'>
             <form onSubmit={handleStartConversation}>
-                <input type='text' value={name} onChange={(e) => setName(e.target.value)} placeholder='Conversation Name' />
-                <input type='text' value={description} onChange={(e) => setDescription(e.target.value)} placeholder='Conversation Description' />
-                <input type='submit' value='Start Conversation' />
+                <input required type='text' value={name} onChange={(e) => setName(e.target.value)} placeholder='Conversation Name' />
+                <input required type='text' value={description} onChange={(e) => setDescription(e.target.value)} placeholder='Conversation Description' />
+                <input type='submit' value='CONFIRM' />
             </form>
         </div>
     );

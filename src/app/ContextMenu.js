@@ -1,7 +1,6 @@
 // ContextMenu.js
-import React, { useContext, useEffect } from 'react';
+import React from 'react';
 import './ContextMenu.css';
-import { ContextMenuContext } from './ContextMenuProvider';
 
 const ContextMenu = ({ items, position, removeContextMenu }) => {
 

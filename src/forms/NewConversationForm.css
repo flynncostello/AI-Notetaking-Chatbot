@@ -1,0 +1,42 @@
+.new-conversation-page {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    margin-top: -20px;
+}
+
+.new-conversation-page form {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    gap: 50px;
+    margin: 8%;
+}
+
+.new-conversation-page form input[type="text"] {
+    padding: 2.2vw 2vw;
+    width: 32vw;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 5px black;
+    font-size: 2vw;
+    outline: none;
+}
+
+.new-conversation-page form input[type="submit"] {
+    padding: 2.5vw 2vw;
+    width: 36vw;
+    border-radius: 100px;
+    border: 1px solid black;
+    font-size: 2.5vw;
+    background-image: linear-gradient(to right, #023ae1, #00ddff);
+    color: #fff;
+    box-shadow: 0 0 3px black;
+    cursor: pointer;
+}
+
+.new-conversation-page form input[type="submit"]:hover {
+    opacity: 0.8;
+}

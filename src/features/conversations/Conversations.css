@@ -4,6 +4,8 @@
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     margin-left: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .conversations h1 {
@@ -61,12 +63,33 @@
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin: 0 10px 20px 10px; 
+    margin: 0 10px 20px 10px;
 }
 
 .delete-conversation-button:hover {
     opacity: 0.8;
 }
-  
 
-  
+.start-new-conversation-button-conversation-page {
+    font-size: 35px;
+    width: auto;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-image: linear-gradient(to right, #023ae1, #00ddff);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    box-sizing: border-box;
+    transition: padding 0.2s ease;
+    margin: auto;
+    margin-bottom: 80px;
+    margin-top: 40px;
+}
+
+.start-new-conversation-button-conversation-page:hover {
+    padding: 12px 22px;
+}
