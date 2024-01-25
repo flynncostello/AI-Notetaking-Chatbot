@@ -1,0 +1,123 @@
+
+.website-container {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Navigation Bar */
+.nav-container {
+    padding: 15px 0 15px 30px;
+    opacity: 0.99;
+    overflow: hidden;
+    z-index: 10;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between; /* Center the navigation */
+    align-items: center;
+    background-color: white;
+    border-bottom: 0.5px solid black;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+    margin-left: 50px;
+}
+
+
+.main-nav-ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-grow: 1;
+    margin-right: 50px;
+}
+
+.main-nav-link {
+    text-decoration: none;
+    color: black;
+    opacity: 0.9;
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 18px;
+    padding: 0px 25px;
+    position: relative;
+    font-weight: 500;
+}
+
+.main-nav-link:hover {
+    opacity: 0.8;
+}
+
+.main-nav-link::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -5px;
+    left: 23px;
+    width: calc(100% - 2.75rem);
+    height: 1.5px; /* Adjust the thickness of the line */
+    background-color: black; /* Adjust the color of the line */
+    transform: scaleX(0); /* Zero scale, i.e., invisible */
+    transform-origin: bottom right; /* Where it ends */
+    transition: transform 0.3s ease-in-out;
+}
+
+.main-nav-link:hover::after {
+    transform: scaleX(1); /* Full scale */
+    transform-origin: bottom left;
+}
+
+/* Home Page */
+.home {
+   display: flex;
+   align-items: center;
+   justify-content: space-evenly;
+   margin: 0 80px;
+}
+
+.home > :first-child {
+    flex: 60;
+}
+
+.home > :last-child {
+    flex: 40;
+}
+
+.main-text h1 {
+    font-size: 120px;
+    font-weight: 700;
+    padding: 0;
+    margin: 50px 0 0 0;
+}
+
+.main-text h2 {
+    font-size: 30px;
+    font-weight: 300;
+    max-width: 650px;
+}
+
+.start-new-conversation-button {
+    font-size: 25px;
+    width: auto;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-image: linear-gradient(to right, #023ae1, #00ddff);
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    box-sizing: border-box;
+    transition: padding 0.2s ease;
+}
+
+.start-new-conversation-button:hover {
+    padding: 12px 22px;
+}

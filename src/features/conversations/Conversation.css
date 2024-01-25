@@ -1,0 +1,227 @@
+
+.conversation-page {
+    margin: 0;
+    padding: 0;
+}
+
+/* Back button */
+.conversation-page-back-button {
+    font-size: 40px;
+    font-weight: 900;
+    background: none;
+    border: none;
+    color: black;
+    cursor: pointer;
+    height: 10px;
+    margin-left: 10px;
+    transition: opacity 0.1s ease;
+}
+
+.conversation-page-back-button:hover {
+    opacity: 0.6;
+}
+
+
+/* Container for entire page */
+.conversation-page-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.conversation-page-container > :first-child {
+    flex: 35;
+}
+
+.conversation-page-container > :last-child {
+    flex: 65;
+}
+
+
+/* Left side of page */
+
+.conversation-page-info {
+    display: flex;
+    flex-direction: column; /* Add this line */
+    background-color: rgb(216, 252, 255);
+    height: 90vh;
+    padding: 30px;
+    max-height: 90vh;
+    margin: 20px 20px 20px 60px;
+    border-radius: 10px;
+    box-shadow: 0 0 2px black;
+}
+
+/* Header on left side of page */
+
+.conversation-page-header {
+    margin: 30px 0 50px 0;
+    text-align: center;
+}
+.conversation-page-header h1 {
+    font-size: 40px;
+    font-weight: 500;
+    padding: 0;
+    margin: 40px 0 -10px 0;
+}
+
+.conversation-page-header h2 {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.conversation-page-header p {
+    font-size: 20px;
+    font-weight: 400;
+}
+
+/* Save part of left side */
+.conversation-page-save {
+    text-align: center;
+    margin: 10px;
+}
+
+.conversation-page-save .start-save-button:hover {
+    opacity: 0.8;
+}
+
+.conversation-page-save .start-save-button:active {
+    margin: 2px 0 0 2px;
+    box-shadow: none;
+}
+
+.start-save-button {
+    padding: 15px 45px;
+    background-color: white;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 1px 1px 2px black;
+    color: black;
+    font-size: 26px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+
+/* Right side of page - actual conversation/chat */
+
+.conversation-page-messanger {
+    padding: 30px;
+    margin: 20px 60px 0 20px;
+    border: 1px solid black;
+    height: 88.5vh;
+    max-height: 90vh;
+    border-radius: 10px;
+    overflow-y: scroll;
+    box-sizing: border-box;
+    width: 90%;
+}
+
+/* When conversation is empty */
+.conversation-empty-header {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 100px 0 50px 0;
+}
+
+.conversation-empty-header img {
+    width: 20%;
+}
+
+.conversation-empty-header h1 {
+    font-weight: 400;
+}
+
+
+/* When conversation is not empty */
+.conversation-page-previous-messages {
+    padding: 10px;
+}
+
+/* AI and User chat bubbles */
+
+.chat-bubble {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.ai-chat, .user-chat {
+    border-radius: 15px;
+    margin-top: -10px;
+    padding: 10px;
+    max-width: 45%;
+    position: relative;
+    display: inline-flex;
+}
+
+.ai-chat {
+    text-align: left;
+    margin-right: auto;
+    background-color: rgb(228, 228, 228);
+    color: black;
+}
+
+.ai-chat::before {
+    content: '';
+    position: absolute;
+    left: -15px;
+    bottom: 5px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent rgb(228, 228, 228) transparent transparent;
+}
+
+.user-chat {
+    text-align: right;
+    background-color: rgb(0, 136, 255);
+    color: white;
+    text-align: right;
+    margin-left: auto;
+}
+
+.user-chat::after {
+    content: '';
+    position: absolute;
+    right: -15px;
+    bottom: 4px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent transparent rgb(0, 136, 255);
+}
+
+/* Message input */
+.converesation-page-message-form {
+    padding: 5px;
+    margin: 10px 60px 20px 20px;
+    display: inline-flex;
+    justify-content: space-between;
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 90%;
+    box-sizing: border-box;
+}
+
+.converesation-page-message-form input[type="text"] {
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 300;
+    width: 100%;
+}
+
+.converesation-page-message-form input[type="text"]::placeholder {
+    font-style: italic;
+}
+
+.converesation-page-message-form button[type="submit"] {
+    cursor: pointer;
+    font-style: normal;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 900;
+}
