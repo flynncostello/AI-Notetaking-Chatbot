@@ -1,6 +1,6 @@
 const OpenAI = require('openai');
 
-const openai = new OpenAI({ apiKey: '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', dangerouslyAllowBrowser: true });
+const openai = new OpenAI({ apiKey: '', dangerouslyAllowBrowser: true });
 
 export async function getConversationResponse(userPrompt) {
     console.log("GETTING RESPONSE");
