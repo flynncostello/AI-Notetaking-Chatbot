@@ -11,6 +11,7 @@ import { getConversationResponse } from '../../aiAPI/conversation_ai';
 const Conversation = () => {
     const [ newMessage, setNewMessage ] = useState('');
     const [ savingMessage, setSavingMessage ] = useState(false);
+    const [ loadingResponse, setLoadingResponse ] = useState(false);
 
 
     const endOfMessagesRef = useRef(null);
@@ -32,10 +33,12 @@ const Conversation = () => {
 
     // Handles creating ai response based on user input using OpenAI API
     const createAiResponse = async (userMessage) => {
+        setLoadingResponse(true);
         try {
             const aiResponse = await getConversationResponse(userMessage);
             setNewMessage('');
             dispatch(updateConversation({ conversationId: id, newConversationElement: aiResponse, aiTurn: !aiTurn, userTurn: !userTurn }));
+            setLoadingResponse(false);
         } catch (err) {
             console.log(err);
         }
@@ -95,6 +98,12 @@ const Conversation = () => {
                                         </div>
                                     )
                                 ))}
+                                {aiTurn && loadingResponse ?
+                                <div className="loading">
+                                    <div className="dot"></div>
+                                    <div className="dot"></div>
+                                    <div className="dot"></div>
+                                </div> : null}
                                 <div ref={endOfMessagesRef} />
                             </div>
                         }

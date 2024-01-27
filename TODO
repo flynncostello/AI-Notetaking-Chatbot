@@ -1,5 +1,3 @@
 TODO LIST:
-1) Ensure that when you click elsewhere on screen context menu disappears
-2) Create context menu for files
-3) Add more functionality to context menu such as renaming folder/file
-4) Begin adding OpenAI API functionality to web app
+1) Add loading symbols for when AI is generating response and summarising conversation
+2) Add more functionality to context menu such as renaming folder/file

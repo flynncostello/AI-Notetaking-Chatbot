@@ -9,6 +9,7 @@ import { aiSummariseConversation } from '../aiAPI/conversation_ai';
 const ConversationSaveForm = ({ conversation, handleStartSaveProcess }) => {
     const [selectedFolderId, setSelectedFolderId] = useState('');
     const [newFolderName, setNewFolderName] = useState('');
+    const [isSaving, setIsSaving] = useState(false);
 
     // Clear newFolderName when selectedFolderId changes
     useEffect(() => {
@@ -42,6 +43,11 @@ const ConversationSaveForm = ({ conversation, handleStartSaveProcess }) => {
 
     const handleSaveConversation = async (e) => {
         e.preventDefault();
+        await new Promise(resolve => {
+            setIsSaving(true);
+            resolve();
+        });
+
         const summarisedConversation = await summariseConversation(conversation);
         const newNote = {
             id: uuidv4(),
@@ -53,6 +59,7 @@ const ConversationSaveForm = ({ conversation, handleStartSaveProcess }) => {
 
         if(!selectedFolderId && !newFolderName) {
             alert("Please choose an existing folder or enter a new folder name.");
+            setIsSaving(false);
             return;
         }
         
@@ -67,6 +74,7 @@ const ConversationSaveForm = ({ conversation, handleStartSaveProcess }) => {
             dispatch(addFolder(newFolder));
             dispatch(addNoteToFolder({ folderId: newFolder.id, note: newNote }));
         }
+        setIsSaving(false);
 
         // Removing save input for current conversation
         handleStartSaveProcess();
@@ -84,7 +92,12 @@ const ConversationSaveForm = ({ conversation, handleStartSaveProcess }) => {
                 </select>
                 <input type="text" value={newFolderName} className='select-folder-input' onChange={(e) => setNewFolderName(e.target.value)} placeholder="Or enter a new folder" />
             </div>
-            <button type="submit" id='save-conversation-final-button'>Confirm</button>
+            <button type="submit" id='save-conversation-final-button' disabled={isSaving}>Confirm</button>
+            {isSaving ? <div className="loading">
+                <div className="dot"></div>
+                <div className="dot"></div>
+                <div className="dot"></div>
+            </div> : null}
         </form>
     );
 };

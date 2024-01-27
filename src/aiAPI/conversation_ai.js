@@ -1,8 +1,9 @@
 const OpenAI = require('openai');
 
-const openai = new OpenAI({ apiKey: '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', dangerouslyAllowBrowser: true });
+const openai = new OpenAI({ apiKey: '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', dangerouslyAllowBrowser: true });
 
 export async function getConversationResponse(userPrompt) {
+    console.log("GETTING RESPONSE");
     const completion = await openai.chat.completions.create({
         messages: [{ role: 'system', content: userPrompt }],
         model: 'gpt-3.5-turbo',
@@ -10,6 +11,7 @@ export async function getConversationResponse(userPrompt) {
     });
 
     const aiResponse = completion.choices[0].message.content;
+    console.log(aiResponse);
     return aiResponse;
 };
 
