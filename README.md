@@ -1,5 +1,4 @@
-
-![Uploading mainPageImageAppFeatures.png…]()
+![plot](./src/images/mainPageImageAppFeatures.png)
 
 NoteItAi - Chatbot & Notes Web App
 
