@@ -1,5 +1,3 @@
-![plot](./src/images/mainPageImageAppFeatures.png)
-
 NoteItAi - Chatbot & Notes Web App
 
 
@@ -55,3 +53,6 @@ Manage Everything:
 
 
 Delete or rename conversations, notes, files, and folders to keep your workspace tidy.
+
+![plot](./src/images/mainPageImageAppFeatures.png)
+
