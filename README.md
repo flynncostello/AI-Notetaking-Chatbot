@@ -53,12 +53,3 @@ Manage Everything:
 
 
 Delete or rename conversations, notes, files, and folders to keep your workspace tidy.
-
-
-
-Support and Feedback
-
-
-If you encounter any issues or have suggestions for improvement, please contact our support team at support@example.com. We value your feedback and are dedicated to making the ChatBot Conversations Web App a better experience for you.
-
-Happy Chatting!
